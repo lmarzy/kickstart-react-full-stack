@@ -1,7 +1,5 @@
 import * as React from "react";
 
-const test = [1, 2, 3];
-
 export interface HelloProps {
   compiler: string;
   framework: string;

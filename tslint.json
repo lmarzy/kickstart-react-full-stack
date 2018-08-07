@@ -8,6 +8,7 @@
   "rules": {
     "interface-name": [true, "never-prefix"],
     "ordered-imports": false,
-    "member-access": [true, "no-public"]
+    "member-access": [true, "no-public"],
+    "no-unused-variable": false
   }
 }

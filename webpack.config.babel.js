@@ -1,4 +1,9 @@
+import webpack from "webpack";
 import HtmlWebPackPlugin from "html-webpack-plugin";
+import CleanWebpackPlugin from "clean-webpack-plugin";
+
+const cleanWebpackPlugin = new CleanWebpackPlugin(["dist"]);
+const hotModuleReplacement = new webpack.HotModuleReplacementPlugin();
 
 const htmlWebPackPlugin = new HtmlWebPackPlugin({
   template: "./src/client/index.html",
@@ -36,9 +41,15 @@ module.exports = {
   devtool: "source-map",
   devServer: {
     port: 3000,
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   },
-  plugins: [htmlWebPackPlugin],
+  plugins: [
+    cleanWebpackPlugin,
+    hotModuleReplacement,
+    htmlWebPackPlugin,
+    cleanWebpackPlugin
+  ],
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"]
   }
